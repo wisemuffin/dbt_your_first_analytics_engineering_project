@@ -1,0 +1,17 @@
+version: 2
+
+models:
+
+- name: fct_deal_history
+  description: Each record represents a deal
+  columns:
+    - name: deal_stage_id
+      description: The unique combination of a deal id plus the row_number over a deal for each stage
+      tests:
+        - not_null
+        - unique
+    - name: company_id
+      tests:
+        - relationships:
+              to: ref('dim_company')
+              field: company_id

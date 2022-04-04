@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: hubspot
+    database: fivetran_database
+    tables:
+      - name: deal
+      - name: company
+        description: Each record represents a company in Hubspot.
+        columns:
+        - name: id
+          description: The ID of the company.
+      - name: contact
+      - name: ticket
+      - name: deal_company
+      - name: deal_contact
+
+      - name: deal_stage
+      - name: ticket_company
+      - name: ticket_contact

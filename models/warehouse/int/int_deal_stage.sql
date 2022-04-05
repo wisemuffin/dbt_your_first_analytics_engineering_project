@@ -12,8 +12,7 @@ with deal_stage as (
         deal_stage._fivetran_start as date_stage_entered,
         deal_stage._fivetran_end as date_stage_exited,
         deal_stage._fivetran_active as is_stage_active,
-
-        case when  deal_stage_name = 'closedwon' then date_stage_entered
+        case when  deal_stage_name in ('closedwon', 'closedlost') then date_stage_entered
           when TO_BOOLEAN(IS_STAGE_ACTIVE) then current_timestamp 
           else date_stage_exited end 
         as date_stage_latest,
